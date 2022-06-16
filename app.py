@@ -47,6 +47,13 @@ def SomeFunctionality():
 	logger(request,response)
 	return "<h1>user service %s</H1>"%(rand)
 
+@app.route('/api/user/OtherRoute', methods=['POST'])
+def Otherfunctionality():
+	response={}
+	params = request.get_json(force=True)
+	logger(request,response)
+	return make_response(jsonify(params),200)
+
 def logger(request,response):
 	tmp='headers:{'
 	for header in request.headers:
